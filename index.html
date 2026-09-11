@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premier Auto Detail | Mobile Detailing</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080808;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(8, 8, 8, 0.94);
+      border-bottom: 1px solid #292929;
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 16px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin-left: 22px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 70px;
+      background:
+        radial-gradient(circle at center, #202020 0%, #080808 55%);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      letter-spacing: 5px;
+      color: #aaa;
+      font-size: 13px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(48px, 9vw, 90px);
+      letter-spacing: 6px;
+      line-height: 1;
+      margin-bottom: 15px;
+    }
+
+    .hero h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(22px, 4vw, 34px);
+      letter-spacing: 5px;
+      font-weight: normal;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      color: #c8c8c8;
+      max-width: 650px;
+      margin: auto;
+      font-size: 17px;
+    }
+
+    .buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 25px;
+      border: 1px solid #fff;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .button.secondary {
+      border-color: #555;
+      color: #ddd;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 90px 22px;
+    }
+
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: 38px;
+      letter-spacing: 3px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #999;
+      margin-bottom: 45px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .service {
+      border: 1px solid #292929;
+      padding: 27px;
+      background: #0e0e0e;
+      transition: .2s;
+    }
+
+    .service:hover {
+      border-color: #777;
+      transform: translateY(-3px);
+    }
+
+    .service h3 {
+      font-family: Georgia, serif;
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .service p {
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .price {
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    .featured {
+      border-color: #aaa;
+      position: relative;
+    }
+
+    .featured::before {
+      content: "FEATURED SERVICE";
+      position: absolute;
+      top: -11px;
+      left: 18px;
+      background: #080808;
+      padding: 0 8px;
+      color: #aaa;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .about {
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+      text-align: center;
+    }
+
+    .about p {
+      max-width: 720px;
+      margin: auto;
+      color: #bbb;
+      font-size: 17px;
+    }
+
+    .contact-box {
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+      border: 1px solid #292929;
+      padding: 45px 25px;
+      background: #0e0e0e;
+    }
+
+    .contact-box h3 {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .contact-info {
+      margin: 25px 0;
+      color: #ccc;
+    }
+
+    .contact-info a {
+      color: white;
+      text-decoration: none;
+    }
+
+    footer {
+      border-top: 1px solid #222;
+      text-align: center;
+      padding: 30px 20px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        justify-content: center;
+      }
+
+      nav .links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      section {
+        padding: 70px 18px;
+      }
+
+      h1 {
+        letter-spacing: 3px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="brand">PREMIER</div>
+
+    <div class="links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-content">
+
+      <div class="eyebrow">Mobile Automotive Detailing</div>
+
+      <h1>PREMIER</h1>
+
+      <h2>AUTO DETAIL</h2>
+
+      <p>
+        Professional mobile detailing serving
+        St. Cloud & Kissimmee, Florida.
+      </p>
+
+      <div class="buttons">
+        <a class="button" href="tel:4078733300">
+          CALL / TEXT
+        </a>
+
+        <a class="button secondary" href="#services">
+          VIEW SERVICES
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="services">
+
+    <h2 class="section-title">SERVICES</h2>
+
+    <p class="section-subtitle">
+      Professional detailing brought directly to you.
+    </p>
+
+    <div class="services">
+
+      <div class="service featured">
+        <h3>Headlight Restoration</h3>
+        <p>
+          Restore cloudy, yellowed headlights for a cleaner
+          appearance and improved light output.
+        </p>
+        <div class="price">$50</div>
+      </div>
+
+      <div class="service">
+        <h3>Mini Exterior</h3>
+        <p>
+          Wheels, tires, pre-rinse, pre-wash, foam bath,
+          contact wash, dry and spray wax.
+        </p>
+        <div class="price">$50</div>
+      </div>
+
+      <div class="service">
+        <h3>Mini Interior</h3>
+        <p>
+          Interior vacuum, wipe-down and windows.
+        </p>
+        <div class="price">$55</div>
+      </div>
+
+      <div class="service">
+        <h3>Full Exterior</h3>
+        <p>
+          A more thorough exterior cleaning and finish.
+        </p>
+        <div class="price">$130</div>
+      </div>
+
+      <div class="service">
+        <h3>Full Interior</h3>
+        <p>
+          Detailed interior cleaning for a refreshed cabin.
+        </p>
+        <div class="price">$140</div>
+      </div>
+
+      <div class="service">
+        <h3>Interior Focus</h3>
+        <p>
+          Mini exterior combined with a full interior detail.
+        </p>
+        <div class="price">$170</div>
+      </div>
+
+      <div class="service">
+        <h3>Engine Bay</h3>
+        <p>
+          Careful cleaning of the engine compartment.
+        </p>
+        <div class="price">$30</div>
+      </div>
+
+      <div class="service">
+        <h3>Odor Removal</h3>
+        <p>
+          Treatment designed to reduce unwanted vehicle odors.
+        </p>
+        <div class="price">$30</div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="about" class="about">
+
+    <h2 class="section-title">WHY PREMIER?</h2>
+
+    <p>
+      Premier Auto Detail provides convenient mobile automotive
+      detailing for customers in the St. Cloud and Kissimmee area.
+      Professional service, attention to detail and convenience —
+      without having to leave your driveway.
+    </p>
+
+  </section>
+
+
+  <section id="contact">
+
+    <div class="contact-box">
+
+      <h3>READY TO GET YOUR CAR LOOKING PREMIER?</h3>
+
+      <p>
+        Contact us for availability or a quote.
+      </p>
+
+      <div class="contact-info">
+
+        <p>
+          📱 <a href="tel:4078733300">
+            407-873-3300
+          </a>
+        </p>
+
+        <p>
+          ✉️ <a href="mailto:PremierAutoDetailFL@gmail.com">
+            PremierAutoDetailFL@gmail.com
+          </a>
+        </p>
+
+        <p>
+          📍 St. Cloud & Kissimmee, Florida
+        </p>
+
+      </div>
+
+      <a class="button" href="tel:4078733300">
+        GET A QUOTE
+      </a>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+  © 2026 Premier Auto Detail · Mobile Automotive Detailing
+</footer>
+
+</body>
+</html>
